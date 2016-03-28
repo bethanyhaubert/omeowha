@@ -1,8 +1,11 @@
-class CatsController < ActionController::Base
-  # Prevent CSRF attacks by raising an exception.
-  # For APIs, you may want to use :null_session instead.
-  protect_from_forgery with: :exception
+class CatsController < ApplicationController
+  before_action: before_action :authenticate_user!, :except => [:index, :view]
 
+  def index
+    @all_cats = Cat.all
+    render "pages/index"
+  end
+  
   def view
     @cat = Cat.find(params['cat_id'])
     render "view"

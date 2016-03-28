@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
 
-# PAGES
-  root to: "application#index"
+  devise_for :users
+  root to: "cats#index"
 
-# CATS
   get "cats/:cat_id/view" => 'cats#view'
 
   get "cats/new" => 'cats#new'
