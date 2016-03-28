@@ -1,6 +1,15 @@
 class CatsController < ApplicationController
   before_action :authenticate_user!, :except => [:index, :view]
-  #add before action for if current_user.id == @cat.user_id?
+
+  def current_cat
+    @cat = Cat.find(params['cat_id'])
+  end
+
+  def owner?
+     if current_user.id == @cat.user_id
+      return true
+    end
+  end
 
   def index
     @all_cats = Cat.all
@@ -8,7 +17,7 @@ class CatsController < ApplicationController
   end
   
   def view
-    @cat = Cat.find(params['cat_id'])
+    current_cat
     render "view"
   end
 
@@ -23,8 +32,8 @@ class CatsController < ApplicationController
   end
 
   def like
-    @cat = Cat.find(params['cat_id'])
-    if current_user.id == @cat.user_id
+    current_cat
+    if owner == true
     @new_likes =  @cat.likes + 1
     @cat.update_attributes(:likes => @new_likes)
     redirect "cats/#{@cat.id}/view"
@@ -32,33 +41,41 @@ class CatsController < ApplicationController
   end
 
   def edit
-    @cat = Cat.find(params['cat_id'])
-    if current_user.id == @cat.user_id
+    current_cat
+    if owner? == true
     render "edit"
     end
   end
 
   def update
-    @cat = Cat.find(params['cat_id'])
-    if current_user.id == @cat.user_id
+    current_cat
+    if owner? == true
     @cat.update_attributes({name: params['name'], photo: params['photo']})
     redirect "/cats/#{@cat.id}/view"
     end
   end
 
   def favorite
-    @cat = Cat.find(params['cat_id'])
-    if current_user.id == @cat.user_id
+    current_cat
+    if owner? == true
     render "favorite"
     end
   end
 
   def add_favorite
-    @cat = Cat.find(params['cat_id'])
-    if current_user.id == @cat.user_id
+    current_cat
+    if owner? == true
     @new_thing = @cat.favorites.create({thing: params['thing']})
     redirect "/cats/#{@cat.id}/view"
     end
+  end
+
+  def delete
+    current_cat
+    if owner? == true
+    Cat.destroy(@cat)
+    redirect_to "/pages/index"
+   end
   end
 
 end
