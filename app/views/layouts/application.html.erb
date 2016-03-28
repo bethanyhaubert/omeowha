@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
+  <title>Omeowha</title>
   <meta name="ROBOTS" content="NOODP" />
   <meta name="viewport" content="initial-scale=1" />
   <%#
@@ -14,9 +15,19 @@
   <%= csrf_meta_tags %>
 </head>
 <body class="<%= body_class %>">
+ <h1 id="logo"><a href="/">Omeowha</a></h1>
+  <h2 class="welcome">Omaha's premier social media site for cats.</h2>
+<nav>
+ <ul>
+  <li><a href="/cats/new">Add that furry face of yours</a></li>
+ </ul>
+</nav>
   <%= render "flashes" -%>
   <%= yield %>
   <%= render "javascript" %>
   <%= render "css_overrides" %>
 </body>
+<footer>
+  <p><a href="/">Return to the homepage</a>.</p>
+</footer>
 </html>

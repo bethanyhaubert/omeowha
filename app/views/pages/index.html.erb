@@ -1,0 +1,7 @@
+<div>
+  <% @all_cats.each do |cat| %>
+    <a class="container" href="/cats/profile/<%= cat.id %>">
+      <img class="welcome" src="<%= cat.photo %>"/>
+    </a>
+    <% end %>
+</div>

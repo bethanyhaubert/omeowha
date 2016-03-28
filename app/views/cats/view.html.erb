@@ -1,0 +1,26 @@
+<h1>Kitty Profile</h1>
+
+<h2><%= @cat.name %></h2>
+
+<p>This cat's best friend is <a href="/cats/profile/<%= @cat.best_friend.id %>"><%= @cat.best_friend.name %></a></p>
+
+<p><%= @cat.name %> likes <%= @cat.favorites.each do |favorite| %> 
+    <%= favorite.thing %>
+    <% end %>
+</p>
+
+<% if !@cat.photo.nil? %>
+  <img class="profile" src="<%= @cat.photo %>" />
+<% end %>
+
+<div id="cat_info">
+  <ul>
+    <li><%= @cat.name %> has <%= @cat.likes %> likes</li>
+
+    <li><a href="/cats/like/<%= @cat.id %>">Like this cat.</a></li>
+
+    <li><a href="/cats/edit/<%= @cat.id %>">Edit this cat.</a></li>
+    
+    <li><a href="/cats/add_favorite/<%= @cat.id %>">Add this cat's favorite things.</a></li>
+  </ul>
+</div>

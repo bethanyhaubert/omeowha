@@ -1,11 +1,5 @@
-class ApplicationController < ActionController::Base
+class FavoriteController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
-
-def index
-  @all_cats = Cat.all
-  render "pages/index"
-end
-
 end
