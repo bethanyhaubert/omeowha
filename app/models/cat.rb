@@ -1,5 +1,6 @@
 class Cat < ActiveRecord::Base
   # mount_uploader :photo, MainUploader
+  belongs_to :user
   has_many :favorites
   
   def best_friend

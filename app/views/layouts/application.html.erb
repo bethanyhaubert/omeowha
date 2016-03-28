@@ -18,38 +18,37 @@
  <h1 id="logo"><a href="/">Omeowha</a></h1>
   <h2 class="welcome">Omaha's premier social media site for cats.</h2>
 <nav>
-<ul> 
- <% if user_signed_in? %>
-    <li>
-      <%= link_to('Profile settings', edit_user_registration_path) %>
-    </li>
+  <ul> 
+   <% if user_signed_in? %>
+      <li>
+        <%= link_to('Profile settings', edit_user_registration_path) %>
+      </li>
+    <% else %>
+      <li>
+      <%= link_to('Register', new_user_registration_path)  %>
+      </li>
     <% end %>
-  <% else %>
-    <li>
-    <%= link_to('Register', new_user_registration_path)  %>
-    </li>
-  <% end %>
 
-  <% if user_signed_in? %>
+    <% if user_signed_in? %>
+      <li>
+      <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>  
+      </li>
+    <% else %>
+      <li>
+      <%= link_to('Login', new_user_session_path)  %>  
+      </li>
+    <% end %>
     <li>
-    <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
+    <a href="/cats/new">Add that furry face of yours</a>
     </li>
-  <% else %>
     <li>
-    <%= link_to('Login', new_user_session_path)  %>  
+      <a href="/">Home</a>
     </li>
-  <% end %>
-  <li>
-  <a href="/cats/new">Add that furry face of yours</a>
-  </li>
- </ul>
+   </ul>
 </nav>
   <%= render "flashes" -%>
   <%= yield %>
   <%= render "javascript" %>
   <%= render "css_overrides" %>
 </body>
-<footer>
-  <p><a href="/">Return to the homepage</a></p>
-</footer>
 </html>
