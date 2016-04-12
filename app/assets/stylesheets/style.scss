@@ -583,9 +583,9 @@ h2.welcome {
 }
 
 img.welcome {
-  float: left;
-  max-width: 33%;
-  margin: 0;
+  float: center;
+  max-width: 30%;
+  margin: 10px;
   padding: 0;
   background-color: #f5f5f5;
   color: #bdc3c7;
@@ -666,7 +666,7 @@ NAVIGATION
 
 nav {
   text-align: center;
-  padding: 10px 0;
+  padding: 7px 0;
   margin: 0;
   background: #f5f5f5;
 }
@@ -680,17 +680,18 @@ nav ul{
 
 nav li {
   display: inline;
-  width: 15%; 
+  width: 12%; 
+  padding: 10px 0;
 }
 
 nav li a {
   font-size: 1em;
   font-weight:400;
-  padding: 15px 50px;
+  padding: 10px 35px;
   line-height: 1.5;
 }
 
-nav:hover{
+nav li:hover{
   background-color: #99cc00;
 }
 
@@ -730,14 +731,8 @@ PAGE GALLERY
   position: relative;
 }
 
-/*.container{
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.container:hover p{
-  display: block;
+.container:hover{
+  opacity: 0.4;
 }
 
 
@@ -765,5 +760,9 @@ body {
 
   
 
-
-
+#box{
+  margin: 0;
+  padding: 0;
+  padding-top: 10px;
+  // background: white;
+}

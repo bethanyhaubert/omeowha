@@ -1,7 +1,8 @@
-<div>
+<div id="box">
   <% @all_cats.each do |cat| %>
     <a class="container" href="/cats/<%= cat.id %>/view">
       <img class="welcome" src="<%= cat.photo %>"/>
     </a>
     <% end %>
 </div>
+<div class="clear"></div>

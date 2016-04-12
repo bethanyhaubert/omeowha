@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <title>Omeowha</title>
+    <link rel="shortcut icon" href="http://freefavicons.org/download/green-cat/green-cat.png" />
   <meta name="ROBOTS" content="NOODP" />
   <meta name="viewport" content="initial-scale=1" />
   <%#
@@ -18,7 +19,12 @@
  <h1 id="logo"><a href="/">Omeowha</a></h1>
   <h2 class="welcome">Omaha's premier social media site for cats.</h2>
 <nav>
-  <ul> 
+  <ul>
+
+    <li>
+      <a href="/cats/new">Add that furry face of yours</a>
+    </li>
+
    <% if user_signed_in? %>
       <li>
         <%= link_to('Profile settings', edit_user_registration_path) %>
@@ -29,6 +35,10 @@
       </li>
     <% end %>
 
+    <li>
+      <a href="/">Home</a>
+    </li>
+
     <% if user_signed_in? %>
       <li>
       <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>  
@@ -38,16 +48,13 @@
       <%= link_to('Login', new_user_session_path)  %>  
       </li>
     <% end %>
-    <li>
-    <a href="/cats/new">Add that furry face of yours</a>
-    </li>
-    <li>
-      <a href="/">Home</a>
-    </li>
+
    </ul>
 </nav>
-  <%= render "flashes" -%>
+
+
   <%= yield %>
+  <%= render "flashes" -%>
   <%= render "javascript" %>
   <%= render "css_overrides" %>
 </body>
