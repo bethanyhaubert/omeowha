@@ -20,6 +20,7 @@ gem "sprockets-es6"
 gem "title"
 gem "uglifier"
 gem 'devise'
+gem 'carrierwave'
 
 group :development do
   gem "quiet_assets"
