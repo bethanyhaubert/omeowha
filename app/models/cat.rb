@@ -3,6 +3,7 @@ class Cat < ActiveRecord::Base
   belongs_to :user
   has_many :favorites
   
+  #TODO if no overlapping interests, no best friends
   def best_friend
     cat_favorites = self.favorite_things_as_an_array
     other_cats = self.other_cats_and_their_favorites

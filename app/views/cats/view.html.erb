@@ -2,7 +2,9 @@
 
 <h2><%= @cat.name %></h2>
 
+<% if @cat.best_friend != nil %>
 <p>This cat's best friend is <a href="/cats/<%= @cat.best_friend.id %>/view"><%= @cat.best_friend.name %></a>.</p>
+<% end %>
 
 <p><%= @cat.name %> loves
   <% @cat.favorites.each do |favorite| %> 
