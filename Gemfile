@@ -20,6 +20,8 @@ gem "title"
 gem "uglifier"
 gem 'devise'
 gem 'carrierwave'
+gem 'rmagick'
+gem 'fog'
 
 group :development do
   gem "quiet_assets"

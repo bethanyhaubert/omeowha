@@ -8,8 +8,8 @@
 
 <p><%= @cat.name %> loves
   <% @cat.favorites.each do |favorite| %> 
-    <%= favorite.thing %>
-    <% end %>.
+    <%= favorite.thing %><br>
+    <% end %>
 </p>
 
 <% if !@cat.photo.nil? %>
@@ -20,10 +20,10 @@
   <ul>
     <li><%= @cat.name %> has <%= @cat.likes %> likes</li>
 
-    <li><a href="/cats/like/<%= @cat.id %>">Like this cat.</a></li>
+    <li><a href="/cats/<%= @cat.id %>/like">Like this cat.</a></li>
 
-    <li><a href="/cats/edit/<%= @cat.id %>">Edit this cat.</a></li>
+    <li><a href="/cats/<%= @cat.id %>/edit">Edit this cat.</a></li>
     
-    <li><a href="/cats/add_favorite/<%= @cat.id %>">Add this cat's favorite things.</a></li>
+    <li><a href="/cats/<%= @cat.id %>add_favorite">Add this cat's favorite things.</a></li>
   </ul>
 </div>

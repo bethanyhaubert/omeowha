@@ -1,5 +1,7 @@
 class CatsController < ApplicationController
   before_action :authenticate_user!, :except => [:index, :view]
+  # protect_from_forgery with: :exception
+  skip_before_filter :verify_authenticity_token  
 
   def current_cat
     @cat = Cat.find(params['cat_id'])
@@ -36,7 +38,7 @@ class CatsController < ApplicationController
     if owner == true
     @new_likes =  @cat.likes + 1
     @cat.update_attributes(:likes => @new_likes)
-    redirect "cats/#{@cat.id}/view"
+    redirect_to "cats/#{@cat.id}/view"
     end
   end
 
@@ -51,7 +53,7 @@ class CatsController < ApplicationController
     current_cat
     if owner? == true
     @cat.update_attributes({name: params['name'], photo: params['photo']})
-    redirect "/cats/#{@cat.id}/view"
+    redirect_to "/cats/#{@cat.id}/view"
     end
   end
 
@@ -66,7 +68,7 @@ class CatsController < ApplicationController
     current_cat
     if owner? == true
     @new_thing = @cat.favorites.create({thing: params['thing']})
-    redirect "/cats/#{@cat.id}/view"
+    redirect_to "/cats/#{@cat.id}/view"
     end
   end
 

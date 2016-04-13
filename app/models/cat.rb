@@ -1,5 +1,5 @@
 class Cat < ActiveRecord::Base
-  # mount_uploader :photo, MainUploader
+  mount_uploader :photo, PhotoUploader
   belongs_to :user
   has_many :favorites
   
