@@ -23,6 +23,7 @@ gem 'carrierwave'
 gem 'rmagick'
 gem 'fog'
 gem "fog-aws"
+gem "puma"
 
 group :development do
   gem "quiet_assets"
