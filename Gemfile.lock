@@ -394,6 +394,7 @@ DEPENDENCIES
   factory_girl_rails
   flutie
   fog
+  fog-aws
   formulaic
   high_voltage
   honeybadger

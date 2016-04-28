@@ -22,6 +22,7 @@ gem 'devise'
 gem 'carrierwave'
 gem 'rmagick'
 gem 'fog'
+gem "fog-aws"
 
 group :development do
   gem "quiet_assets"
