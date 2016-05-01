@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+  scope "api" do
+    scope "v1" do
+      scope "cats" do
+        get '/' => 'api#index'
+      end
+    end
+  end
+  
   devise_for :users
   root to: "cats#index"
 
