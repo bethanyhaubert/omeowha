@@ -257,6 +257,7 @@ GEM
       pry (~> 0.10)
     pry-rails (0.3.4)
       pry (>= 0.9.10)
+    puma (3.2.0)
     quiet_assets (1.1.0)
       railties (>= 3.1, < 5.0)
     rack (1.6.4)
@@ -394,6 +395,7 @@ DEPENDENCIES
   factory_girl_rails
   flutie
   fog
+  fog-aws
   formulaic
   high_voltage
   honeybadger
@@ -403,6 +405,7 @@ DEPENDENCIES
   pg
   pry-byebug
   pry-rails
+  puma
   quiet_assets
   rack-canonical-host
   rack-mini-profiler

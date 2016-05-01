@@ -35,7 +35,11 @@ class CatsController < ApplicationController
 
   def like
     current_cat
+<<<<<<< HEAD
     @new_likes = @cat.likes + 1
+=======
+    @new_likes =  @cat.likes + 1
+>>>>>>> f90e446c1820546bb81a7c694f179d4a975b5dea
     @cat.update_attributes(:likes => @new_likes)
     redirect_to "cats/#{@cat.id}/view"
   end

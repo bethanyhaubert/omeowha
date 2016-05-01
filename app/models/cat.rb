@@ -20,7 +20,7 @@ class Cat < ActiveRecord::Base
     end
 
     best_friend = totals.max_by {|k,v| v}
-    best_friend[0]
+    best_friend[0] unless best_friend.nil?
   end
   
   def favorite_things_as_an_array
