@@ -20,4 +20,6 @@ Rails.application.routes.draw do
   post "cats/:cat_id/add_favorite" => 'cats#add_favorite'
 
   post "cats/:cat_id/delete" => 'cats#delete'
+
+  get "cats/error" => 'cats#error'
 end

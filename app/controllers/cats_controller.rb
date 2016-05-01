@@ -29,54 +29,62 @@ class CatsController < ApplicationController
 
   def save
     current_user
-    @new_cat = Cat.create({name: params['name'], photo: params['photo'], user_id: params['current_user.id'], likes: 0})
+    @new_cat = Cat.create({name: params['name'], photo: params['photo'], user_id: current_user.id, likes: 0})
     redirect_to "/cats/#{@new_cat.id}/view"
   end
 
   def like
     current_cat
-    if owner == true
-    @new_likes =  @cat.likes + 1
+    @new_likes = @cat.likes + 1
     @cat.update_attributes(:likes => @new_likes)
     redirect_to "cats/#{@cat.id}/view"
-    end
   end
 
   def edit
     current_cat
-    if owner? == true
+    if owner?
     render "edit"
+    else
+      render "error"
     end
   end
 
   def update
     current_cat
-    if owner? == true
+    if owner?
     @cat.update_attributes({name: params['name'], photo: params['photo']})
     redirect_to "/cats/#{@cat.id}/view"
+    else
+      render "error"
     end
   end
 
   def favorite
     current_cat
-    if owner? == true
+    if owner?
     render "favorite"
+    else
+      render "error"
     end
   end
 
   def add_favorite
     current_cat
-    if owner? == true
+    if owner?
     @new_thing = @cat.favorites.create({thing: params['thing']})
     redirect_to "/cats/#{@cat.id}/view"
+    else
+      render "error"
     end
   end
 
   def delete
     current_cat
-    if owner? == true
+    if owner?
     Cat.destroy(@cat)
     redirect_to "/pages/index"
+    else
+      render "error"
    end
   end
 
