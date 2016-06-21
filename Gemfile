@@ -24,6 +24,7 @@ gem 'rmagick'
 gem 'fog'
 gem "fog-aws"
 gem "puma"
+gem "administrate", "~> 0.2.0"
 
 group :development do
   gem "quiet_assets"
