@@ -2,14 +2,14 @@
 
 <h2><%= @cat.name %></h2>
 
-<% if @cat.favorites != nil && @cat.best_friend != nil %>
+<% if @cat.favorites != [] && @cat.best_friend != nil %>
 <p>This cat's best friend is <a href="/cats/<%= @cat.best_friend.id %>/view"><%= @cat.best_friend.name %></a>.</p>
 <% end %>
 
-<% if @cat.favorites != nil %>
+<% if @cat.favorites != [] %>
 <p><%= @cat.name %> loves
   <% @cat.favorites.each do |favorite| %> 
-    <%= favorite.thing %><br>.
+    <%= favorite.thing %><br>
     <% end %>
   <% end %>
 </p>

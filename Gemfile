@@ -25,6 +25,7 @@ gem 'fog'
 gem "fog-aws"
 gem "puma"
 gem "administrate", "~> 0.2.0"
+gem 'bourbon'
 
 group :development do
   gem "quiet_assets"
