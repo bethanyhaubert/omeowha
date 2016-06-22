@@ -3,16 +3,34 @@
 <h2><%= @cat.name %></h2>
 
 <% if @cat.favorites != [] && @cat.best_friend != nil %>
-<p>This cat's best friend is <a href="/cats/<%= @cat.best_friend.id %>/view"><%= @cat.best_friend.name %></a>.</p>
+	<p>This cat's best friend is <a href="/cats/<%= @cat.best_friend.id %>/view"><%= @cat.best_friend.name %></a>.</p>
 <% end %>
 
 <% if @cat.favorites != [] %>
-<p><%= @cat.name %> loves
-  <% @cat.favorites.each do |favorite| %> 
-    <%= favorite.thing %><br>
-    <% end %>
-  <% end %>
-</p>
+	<p><%= @cat.name %> loves
+		<% if @cat.favorites.length == 1 %>
+			<% @cat.favorites.each do |favorite| %>
+						<%= favorite.thing %>.
+				<% end %>
+		<% elsif @cat.favorites.length == 2 %>
+				<% @cat.favorites.each do |favorite| %>
+						<% if favorite != @cat.favorites.last %>
+								<%= favorite.thing %> and
+						<% else %>
+								<%= favorite.thing %>.
+						<% end %>
+				<% end %>
+		<% else %>
+				<% @cat.favorites.each do |favorite| %>
+						<% if favorite != @cat.favorites.last %>
+							<%= favorite.thing %>,
+						<% else %>
+								and <%= favorite.thing %>.
+						<% end %>
+				<% end %>
+			<% end %>
+	</p>
+<% end %>
 
 <% if !@cat.photo.nil? %>
   <img class="profile" src="<%= @cat.photo %>" />
